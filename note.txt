@@ -1,0 +1,8 @@
+@app.post('/translet',response_model=schemas.TaskResponse)
+def translate (request: schemas.TranslationRequest, background_tasks :BackgroundTasks, db : Session  = Depends(get_db)):
+     task = crud.create_Translation_Task(get_db, request.text, request.languages)
+
+     background_tasks.add_task(perform_translation, task.id, request.text, request.languages, db)
+     
+     
+     return
