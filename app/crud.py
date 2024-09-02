@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 from app import model
 
 def create_Translation_Task(db:Session , text : str, languages: list):
-    task = model.TranslationTask(text = text, languages = languages)
+    task = model.TranslationTask(text = text, language = languages)
     db.add(task)
     db.commit()
     db.refresh(task)
