@@ -11,3 +11,5 @@ class TranslationTask(Base):
     language = Column(JSON , nullable= False)
     status = Column(String, default= " in progress ")
     translation = Column(JSON, default={})
+    
+    
